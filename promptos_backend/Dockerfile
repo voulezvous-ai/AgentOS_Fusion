@@ -1,3 +1,6 @@
+# Dockerfile (backend) - Força rebuild por comentário
+# Rebuild tag: 2025-04-15-01
+
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
