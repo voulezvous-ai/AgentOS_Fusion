@@ -1,2 +1,2 @@
-# promptos_backend/app/core/__init__.py
-# This file makes the directory a Python package
+from . import csrf_utils  # já existente
+from . import settings  # novo import para garantir health funcionando
