@@ -1,13 +1,17 @@
 # app/worker/celery_app.py
+import os
 from celery import Celery
 from celery.schedules import crontab
 from datetime import timedelta
 
+# Get Redis URL from environment variable, default to localhost if not set
+redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+
 # Example configuration
 celery_app = Celery(
     "agentos_tasks",
-    broker="redis://localhost:6379/0",
-    backend="redis://localhost:6379/0",
+    broker=redis_url, # Use environment variable
+    backend=redis_url, # Use environment variable
     include=[
         "app.worker.tasks_delivery",
         "app.worker.tasks_scheduling",

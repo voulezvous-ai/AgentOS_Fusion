@@ -19,7 +19,8 @@ CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || echo 1)
 DEFAULT_WORKERS=$((CORES * WORKERS_PER_CORE))
 WORKERS=${WORKERS:-$DEFAULT_WORKERS}
 
-exec uvicorn \
+# Execute uvicorn using the full path within the virtual environment
+exec /app/.venv/bin/uvicorn \
     app.main:app \
     --host ${HOST} \
     --port ${PORT} \
