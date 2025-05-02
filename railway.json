@@ -22,7 +22,7 @@
       "healthcheckPath": "/"
     },
     "worker": {
-      "startCommand": "celery -A app.worker.celery_app worker --loglevel=info",
+      "startCommand": "/app/.venv/bin/celery -A app.worker.celery_app worker --loglevel=info",
       "context": "backend"
     }
   }
