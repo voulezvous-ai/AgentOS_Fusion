@@ -14,7 +14,7 @@
   },
   "deploy": {
     "backend": {
-      "startCommand": "sh start.sh",
+      "startCommand": "/app/start.sh",
       "healthcheckPath": "/api/v1/healthcheck"
     },
     "frontend": {
