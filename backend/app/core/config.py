@@ -74,8 +74,8 @@ class Settings(BaseSettings):
     CELERY_WORKER_CONCURRENCY: int = int(os.getenv('CELERY_WORKER_CONCURRENCY', '4'))
 
     model_config = SettingsConfigDict(  
-        # Tenta carregar .env primeiro, depois .env.local (que pode sobrescrever)  
-        env_file=(find_dotenv_path('.env'), find_dotenv_path('.env.local')),  
+        # Filtra None antes de passar para env_file
+        env_file=tuple(filter(None, (find_dotenv_path('.env'), find_dotenv_path('.env.local')))),
         env_file_encoding='utf-8',  
         extra='ignore', # Ignora variáveis extras no .env  
         case_sensitive=False, # Permite variáveis de ambiente em maiúsculas ou minúsculas  
@@ -86,11 +86,12 @@ def get_settings() -> Settings:
     """Carrega e valida as configurações da aplicação."""  
     logger.info("Loading application settings...")  
     # Logar qual arquivo .env foi encontrado (se algum)  
+    # A lógica de carregamento agora está dentro de Pydantic, mas podemos logar o que foi encontrado
     env_files_found = [p for p in [find_dotenv_path('.env'), find_dotenv_path('.env.local')] if p]  
     if env_files_found:  
-        logger.info(f"Loading environment variables from: {', '.join(env_files_found)}")  
+        logger.info(f"Attempting to load environment variables from: {', '.join(env_files_found)}")  
     else:  
-        logger.warning("No .env file found. Loading settings from system environment variables only.")
+        logger.warning("No .env or .env.local file found. Loading settings from system environment variables only.")
 
     try:  
         # Pydantic-settings carrega do .env e depois sobrescreve com variáveis de ambiente do sistema  

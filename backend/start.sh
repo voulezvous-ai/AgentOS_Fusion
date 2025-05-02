@@ -2,8 +2,8 @@
 
 set -e
 
-# Activate the virtual environment
-source .venv/bin/activate
+# Activate the virtual environment - REMOVIDO, desnecessário no contexto do Docker CMD
+# source .venv/bin/activate
 
 # Run migrations or setup tasks (if applicable)
 # echo "Running database setup/migrations..."

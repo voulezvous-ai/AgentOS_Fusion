@@ -20,6 +20,10 @@
     "frontend": {
       "startCommand": "npm run build && npm run preview",
       "healthcheckPath": "/"
+    },
+    "worker": {
+      "startCommand": "celery -A app.worker.celery_app worker --loglevel=info",
+      "context": "backend"
     }
   }
 }
