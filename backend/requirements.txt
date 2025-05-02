@@ -1,0 +1,28 @@
+fastapi[all]>=0.110.0,<1.0.0  
+uvicorn[standard]>=0.29.0,<1.0.0  
+motor>=3.4.0,<4.0.0  
+celery>=5.3.6,<6.0.0  
+redis>=5.0.1,<6.0.0  
+# flower>=2.0.1,<3.0.0 # Opcional: Celery monitoring UI  
+python-dotenv>=1.0.0,<2.0.0  
+pydantic-settings>=2.2.0,<3.0.0 # Usando V2 de pydantic-settings  
+loguru>=0.7.2,<1.0.0  
+openai>=1.16.0,<2.0.0 # Manter atualizado com API OpenAI  
+# google-generativeai>=0.4.0,<1.0.0 # Descomentar se usar Gemini  
+python-jose[cryptography]>=3.3.0,<4.0.0 # JWT  
+passlib[bcrypt]>=1.7.4,<2.0.0 # Password hashing  
+httpx>=0.27.0,<1.0.0 # Async HTTP requests  
+# sentry-sdk[fastapi,celery,redis]>=1.40.0,<2.0.0 # Descomentar se usar Sentry  
+bson>=0.5.10 # Para ObjectId diretamente em alguns modelos/repos  
+pytz>=2023.3 # Para timezones, se necessário explicitamente  
+uuid>=1.30 # Para gerar UUIDs (embora nativo do Python)  
+# pydantic[email]>=2.0,<3.0 # 'email' extra já vem com pydantic v2 base? Verificar. Pydantic V2 incluído via fastapi[all] ou pydantic-settings
+
+# Added from Integracao LLM
+pydantic
+pydantic-settings
+python-dotenv
+httpx
+redis
+fastapi-cache2[redis]
+fastapi-limiter

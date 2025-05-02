@@ -1,0 +1,32 @@
+# =====================================
+# AgentOS Core - Backend Environment Variables
+# =====================================
+PROJECT_NAME="AgentOS Core"
+API_V1_STR="/api/v1"
+LOG_LEVEL="INFO"
+DEFAULT_CURRENCY="BRL"
+
+MONGODB_URI="mongodb://mongo:27017/agentos_db"
+REDIS_URL="redis://redis:6379/0"
+CELERY_BROKER_URL="redis://redis:6379/0"
+CELERY_RESULT_BACKEND="redis://redis:6379/1"
+CELERY_WORKER_CONCURRENCY="4"
+
+OPENAI_API_KEY="sk-..."
+EMBEDDING_MODEL="text-embedding-3-small"
+EMBEDDING_DIMENSIONS=1536
+MONGO_MEMORY_SEARCH_INDEX_NAME="vector_index_memories"
+
+SECRET_KEY="!!!GENERATE_A_STRONG_SECRET_KEY_32_BYTES_HEX!!!"
+ALGORITHM="HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES="60"
+API_KEY="change_this_to_your_secure_static_api_key_for_ws_and_readers"
+
+META_APP_SECRET=""
+META_ACCESS_TOKEN=""
+META_PHONE_NUMBER_ID=""
+META_VERIFY_TOKEN="a_strong_random_string_for_webhook_verification"
+
+SENTRY_DSN=""
+DEFAULT_TEST_USERNAME="testuser"
+DEFAULT_TEST_PASSWORD="testpassword"

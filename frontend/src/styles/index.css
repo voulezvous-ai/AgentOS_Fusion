@@ -1,0 +1,101 @@
+/* src/styles/index.css */  
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities;
+
+@layer base {  
+  body {  
+    @apply font-sans antialiased bg-fusion-deep text-fusion-text-primary overflow-hidden;  
+    /* Ajustar a fonte padrão se necessário */  
+  }
+
+  /* Estilização de scrollbar customizada com cores do tema via plugin tailwind-scrollbar */  
+  /* Apply these classes to elements with overflow */  
+  .scrollbar {  
+      /* For Webkit browsers */  
+      @apply scrollbar-thin scrollbar-thumb-fusion-purple/70 scrollbar-track-fusion-dark/50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;  
+       /* For Firefox */  
+      scrollbar-width: thin;  
+      scrollbar-color: theme('colors.fusion-purple / 0.7') theme('colors.fusion-dark / 0.5');  
+  }  
+  .scrollbar:hover {  
+      /* For Webkit browsers */  
+      @apply scrollbar-thumb-fusion-purple/90;  
+      /* For Firefox */  
+       scrollbar-color: theme('colors.fusion-purple / 0.9') theme('colors.fusion-dark / 0.5');  
+  }
+
+  /* Fallback basic scrollbar styling if plugin is not used (or for non-webkit/firefox) */  
+  /*  
+  ::-webkit-scrollbar {  
+    width: 8px;  
+    height: 8px;  
+  }  
+  ::-webkit-scrollbar-track {  
+    @apply bg-fusion-dark/50 rounded-full;  
+  }  
+  ::-webkit-scrollbar-thumb {  
+    @apply bg-fusion-purple/60 rounded-full border-2 border-transparent bg-clip-content; // Borda interna  
+  }  
+   ::-webkit-scrollbar-thumb:hover {  
+      @apply bg-fusion-purple/80;  
+   }  
+  */  
+}
+
+@layer components {  
+    /* Custom component styles can go here if needed */  
+}
+
+@layer utilities {  
+    /* Custom utility classes can go here if needed */  
+}
+
+/* Estilos para conteúdo renderizado por ReactMarkdown (usando classes prose do Tailwind) */  
+/* A classe 'message-content' é aplicada ao container do markdown no AdvisorMessage */  
+.message-content .prose {  
+    /* Customize prose defaults if needed */  
+     @apply max-w-none; /* Allow markdown to take full width of its container */  
+}
+
+/* Inline code */  
+.message-content .prose code:not([class*="language-"]) {  
+     @apply bg-fusion-dark text-fusion-pink px-1 py-0.5 rounded text-xs font-mono before:content-none after:content-none; /* Remove default prose backticks */  
+}
+
+/* Tables */  
+.message-content .prose table {  
+     @apply w-full my-4 text-xs border-collapse table-auto; /* Use table-auto for better column sizing */  
+}  
+.message-content .prose thead {  
+     @apply bg-fusion-dark; /* Theme color */  
+}  
+.message-content .prose th {  
+      @apply border border-fusion-medium px-3 py-1.5 bg-fusion-dark text-left font-semibold text-fusion-text-secondary; /* Theme colors, more padding */  
+}  
+.message-content .prose tbody tr:nth-child(odd) {  
+    @apply bg-fusion-dark/30; /* Subtle alternating row color */  
+}  
+.message-content .prose td {  
+     @apply border border-fusion-medium px-3 py-1.5 align-top text-fusion-text-primary break-words; /* Theme colors, more padding */  
+}
+
+/* Links */  
+.message-content .prose a {  
+    @apply text-fusion-blue hover:underline; /* Theme color */  
+}
+
+/* Blockquotes */  
+.message-content .prose blockquote {  
+     @apply border-l-4 border-fusion-purple pl-4 italic text-fusion-text-secondary; /* Theme color */  
+}
+
+/* Headings */  
+.message-content .prose h1,  
+.message-content .prose h2,  
+.message-content .prose h3,  
+.message-content .prose h4,  
+.message-content .prose h5,  
+.message-content .prose h6 {  
+     @apply text-fusion-text-primary font-semibold; /* Ensure headings are clearly visible */  
+}  
