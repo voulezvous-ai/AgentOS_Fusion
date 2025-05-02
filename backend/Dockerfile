@@ -44,6 +44,9 @@ COPY --from=builder /app/.venv /app/.venv
 # Copy application code
 COPY . /app
 
+# Ensure the start.sh script has execution permissions
+RUN chmod +x /app/start.sh
+
 # Expose application port
 EXPOSE 8000
 
