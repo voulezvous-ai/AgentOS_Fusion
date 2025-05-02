@@ -2,6 +2,24 @@
   "plugins": {
     "docker": {}
   },
-  "build": {},
-  "deploy": {}
+  "build": {
+    "backend": {
+      "dockerfilePath": "backend/Dockerfile",
+      "context": "backend"
+    },
+    "frontend": {
+      "dockerfilePath": "frontend/Dockerfile",
+      "context": "frontend"
+    }
+  },
+  "deploy": {
+    "backend": {
+      "startCommand": "sh start.sh",
+      "healthcheckPath": "/api/v1/healthcheck"
+    },
+    "frontend": {
+      "startCommand": "npm run build && npm run preview",
+      "healthcheckPath": "/"
+    }
+  }
 }
