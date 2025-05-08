@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: voulezvous-ai-api
+    env: docker
+    plan: free
+    repo: https://github.com/voulezvous-ai/AgentOS_Fusion
+    dockerContext: .
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+    envVars:
+      - fromGroup: voulezvous-ai-production
+
+  - type: worker
+    name: voulezvous-ai-worker
+    env: docker
+    plan: free
+    repo: https://github.com/voulezvous-ai/AgentOS_Fusion
+    dockerContext: .
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+    startCommand: celery -A celery_worker.app worker --loglevel=INFO
+    envVars:
+      - fromGroup: voulezvous-ai-production
