@@ -11,11 +11,11 @@ RUN apt-get update && apt-get install -y \
     build-essential gcc curl git libffi-dev libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
-
-RUN pip install --no-cache-dir -r requirements.txt
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
 COPY . .
+
+RUN poetry install --no-root
 
 EXPOSE 8000
 
