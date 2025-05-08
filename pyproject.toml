@@ -24,6 +24,18 @@ pytz = "^2024.1"
 fastapi-cache2 = { version = "^0.2.1", extras = ["redis"] }
 fastapi-limiter = "^0.1.5"
 
+# Development dependencies from backend/pyproject.toml
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.0"
+pytest-mock = "^3.10.0"
+mongomock-motor = "^0.0.2a2"
+testcontainers = { extras = ["mongodb", "redis"], version = "^4.4.0" }
+pytest-dotenv = "^0.5.2"
+black = "^23.7.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+mypy = "^1.4.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
