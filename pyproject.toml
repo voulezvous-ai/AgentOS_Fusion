@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "agentos"
+version = "0.1.0"
+description = "Backend do AgentOS usando FastAPI, Celery, MongoDB e LLM integration"
+authors = ["danvoulez <dcamarilho@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = { version = "^0.110.0", extras = ["all"] }
+uvicorn = { version = "^0.29.0", extras = ["standard"] }
+motor = "^3.4.0"
+celery = "^5.3.6"
+redis = "^5.0.1"
+python-dotenv = "^1.0.0"
+pydantic-settings = "^2.2.0"
+loguru = "^0.7.2"
+openai = "^1.16.0"
+python-jose = { version = "^3.3.0", extras = ["cryptography"] }
+passlib = { version = "^1.7.4", extras = ["bcrypt"] }
+httpx = "^0.27.0"
+bson = "^0.5.10"
+pytz = "^2024.1"
+fastapi-cache2 = { version = "^0.2.1", extras = ["redis"] }
+fastapi-limiter = "^0.1.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
