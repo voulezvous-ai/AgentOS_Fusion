@@ -3,7 +3,7 @@ fastapi[all]>=0.110.0,<1.0.0          # Web framework moderno com extras (docs, 
 uvicorn[standard]>=0.29.0,<1.0.0      # ASGI server com suporte a reload e produção
 
 # MongoDB Async
-motor>=3.4.0,<4.0.0                   # Driver async para MongoDB
+motor>=3.4.0,<4.0.0                   # Driver async para MongoDB 
 
 # Tarefas Assíncronas
 celery>=5.3.6,<6.0.0                  # Task queue assíncrona
