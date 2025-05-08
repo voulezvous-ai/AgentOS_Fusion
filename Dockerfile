@@ -15,6 +15,8 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 
 COPY . .
 
+RUN poetry export -f requirements.txt --output requirements.txt
+
 RUN poetry install --no-root
 
 EXPOSE 8000
