@@ -11,12 +11,9 @@ RUN apt-get update && apt-get install -y \
     build-essential gcc curl git libffi-dev libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY pyproject.toml poetry.lock* ./
+COPY requirements.txt ./
 
-RUN curl -sSL https://install.python-poetry.org | python3 - && \
-    ln -s /root/.local/bin/poetry /usr/local/bin/poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --only main --no-root
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 

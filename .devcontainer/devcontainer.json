@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "test": "poetry run pytest",
+    "build": "poetry install"
+  }
+}
